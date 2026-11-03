@@ -1,0 +1,22 @@
+name: Hello Actions
+
+on: [push]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 挨拶する
+        run: echo "はじめてのActions、動いた"
+
+      - name: リポジトリを取ってくる
+        uses: actions/checkout@v7
+
+      - name: ファイル一覧を見る
+        run: ls -la
+
+      - name: 環境を見る
+        run: |
+          echo "OS: ${{ runner.os }}"
+          echo "ブランチ: ${{ github.ref }}"
+          echo "実行者: ${{ github.actor }}"
